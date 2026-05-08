@@ -2,14 +2,16 @@ import os
 import asyncio
 import uvicorn
 
-from pyrogram import Client
+from pyrogram import Client, idle
 
 from config import *
 from database.db import init_db
 from api.server import api
 
+# Initialize DB
 init_db()
 
+# Pyrogram Client
 app = Client(
     "elite_bot",
     api_id=API_ID,
@@ -18,10 +20,16 @@ app = Client(
     plugins=dict(root="plugins")
 )
 
-async def main():
+async def start_services():
 
+    # Start Telegram Bot
     await app.start()
 
+    me = await app.get_me()
+
+    print(f"✅ Bot Started: @{me.username}")
+
+    # FastAPI Config
     config = uvicorn.Config(
         api,
         host="0.0.0.0",
@@ -30,11 +38,23 @@ async def main():
                 "PORT",
                 8000
             )
-        )
+        ),
+        loop="asyncio"
     )
 
     server = uvicorn.Server(config)
 
-    await server.serve()
+    # Run API server in background
+    api_task = asyncio.create_task(
+        server.serve()
+    )
 
-asyncio.run(main())
+    # Keep bot alive
+    await idle()
+
+    # Shutdown properly
+    await app.stop()
+
+    await api_task
+
+asyncio.run(start_services())
