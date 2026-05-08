@@ -1,0 +1,18 @@
+API_ID = 19731848        
+API_HASH = "c9833f83810d4d3eacaa23373fb417db"
+BOT_TOKEN = "8408772205:AAEJS__h5uBeu6WEbQqKSU3dWBhAocOPAT0"
+
+ADMINS = [1106857285]
+
+CHANNEL_ID = -1002926493068
+
+AUTO_DELETE_TIME = 180
+
+FORCE_SUB_CHANNELS = [
+    "@zlixofficial",
+    "@moviewallahz_official"
+]
+
+DATABASE_NAME = "bot.db"
+
+RESULTS_PER_PAGE = 10
