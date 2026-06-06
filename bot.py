@@ -3,6 +3,7 @@ import asyncio
 import uvicorn
 
 from pyrogram import Client, idle
+print("PYROGRAM VERSION =", pyrogram.__version__)
 
 from config import *
 from database.db import init_db
