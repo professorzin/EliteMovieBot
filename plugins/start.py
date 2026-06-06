@@ -1,3 +1,5 @@
+print("start.py loaded")
+
 from pyrogram import Client, filters
 
 from core.security import decode_id
