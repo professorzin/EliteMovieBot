@@ -33,9 +33,14 @@ async def start_services():
         print("Starting Pyrogram...")
 
         await app.start()
-
+        print("API_ID =", API_ID)
+        print("BOT_TOKEN exists =", bool(BOT_TOKEN))
+        print("BOT_TOKEN prefix =", BOT_TOKEN[:10] if BOT_TOKEN else "None")
         me = await app.get_me()
 
+        print("BOT ID =", me.id)
+        print("BOT USERNAME =", me.username)
+        
         print(f"✅ Bot Started: @{me.username}")
 
         # Diagnostic
