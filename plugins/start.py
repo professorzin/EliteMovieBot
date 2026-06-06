@@ -9,7 +9,7 @@ from database.files import get_file
     filters.command("start")
 )
 async def start(client, m):
-
+    print("/start received")
     if len(m.command) > 1:
 
         fid = decode_id(
