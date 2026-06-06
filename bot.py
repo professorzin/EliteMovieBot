@@ -1,6 +1,7 @@
 import os
 import asyncio
 import uvicorn
+import pyrogram
 
 from pyrogram import Client, idle
 print("PYROGRAM VERSION =", pyrogram.__version__)
