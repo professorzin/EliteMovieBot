@@ -1,3 +1,4 @@
+print("DEBUG FILE VERSION 999")
 from pyrogram import Client, filters
 
 print("debug.py loaded")
@@ -6,3 +7,4 @@ print("debug.py loaded")
 async def debug(client, message):
     print("UPDATE RECEIVED")
     print(message)
+    print("DEBUG FILE VERSION 999")
